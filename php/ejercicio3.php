@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 $resultado = [
     "current_page" => 1,
     "per_page" => 5,
@@ -9,7 +7,6 @@ $resultado = [
     "last_page" => 1,
     "from" => 1,
     "to" => 5,
-
     "data" => [
         [
             "id" => 1,
@@ -204,13 +201,22 @@ $resultado = [
     ],
 ];
 
-// Crear una funcion login con las validaciones correspondientes.
-// Usuario y password son requeridos
-// Verificar si el usuario esta activo
-// Password longitud minima de 8 caracteres
+
+foreach($resultado['data'] as $usuario) {
+  foreach($usuario['pedidos'] as $pedido) {
+    foreach($pedido['detalles'] as $detalle) {
+      var_dump($detalle['producto']['categoria']['departamento']['nombre']);
+    }
+  }
+}
 
 
-
+// Listar el producto mas caro
+// Listar el producto mas barato
+// Listar los productos con stock menor estricto a 15
+// Mostrar el total de los pedidos.
+// Crear un buscador ignodando mayusculas y minusculas, para buscar un producto que contenga los terminos de la busqueda.
+//  Ej: si busco usb debe encontrar productos como     "Memoria USB de 64 GB
 
 
 
