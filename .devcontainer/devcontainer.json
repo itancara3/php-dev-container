@@ -1,0 +1,22 @@
+{
+  "name": "Clases PHP",
+  "image": "php:8.5-cli-bookworm",
+  "workspaceMount": "source=${localWorkspaceFolder}/php,target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  "overrideCommand": true,
+  "forwardPorts": [7001],
+  "portsAttributes": {
+    "7001": {
+      "label": "Servidor PHP",
+      "requireLocalPort": true,
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "php.validate.executablePath": "/usr/local/bin/php"
+      }
+    }
+  }
+}
