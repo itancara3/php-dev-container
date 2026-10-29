@@ -139,3 +139,47 @@ $usuarios = [
     ],
 ];
 
+
+// Crear una funcion para el login de un usuario
+// Consideraciones:
+//  - El usuario puede ingresar su usuario con espacios extra ej: 'miguel@demo.com  ', por lo que se debe limpiar antes de comparar.
+//  - El usuario debe estar activo.
+//  - Se debe validar que se envian los valores requeridos (user, password).
+//  - El password debe tener mas de 6 caracteres.
+//  - En caso de login correcto debe devolver la siguiente estructura
+    //   success -> true,
+    //   message -> Un mensaje de bienvenida,
+    //   data -> datos publicos como el user y nombre de la persona
+//  -  En el caso de error o login incorrecto debe devolver
+    //   success -> false,
+    //   message -> el error que se tiene, por ejemplo falta usuario, o no coincide user y password,
+    //   data -> null
+
+
+function respuesaExito($message, $data) {
+  return [
+        'success' => true,
+        'message' => $message,
+        'data' => $data
+      ];
+}
+
+function login($usuarios, $user, $password) {
+
+  $usuarioLogin = [];
+
+  foreach($usuarios['rows'] as $usuario) {
+    if ($usuario['user'] === $user && $usuario['password'] === $password && $usuario['is_active']) {
+      $usuarioLogin = [
+        'success' => true,
+        'message' => 'Usuario autenticado correctamente',
+        'data' => [
+          'email' => $usuario['user'],
+          'name' => $usuario['person']['name']
+        ]
+      ];
+    }
+  }
+
+  return $usuarioLogin;
+}
