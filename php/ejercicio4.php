@@ -1,11 +1,11 @@
 <?php
 
-// isset  Verica si una variable existe y es diferente de null
-// empty  verifica si una variable existe y su valor es diferente de "", 0, "0", [], false, null
-// array_key_exist Verifica que una key existe en un array.
-// ??     Te permite asignar valores cuando una variable no existe o es null.
+// isset() Devuelve true cuando la variable existe y su valor es diferente de null.
+// empty() Devuelve true cuando la variable no existe o contiene un valor considerado vacío, como "", 0, "0", 0.0, [], false o null.
+// array_key_exists() Devuelve true cuando la clave indicada existe en un array, incluso si su valor es null.
+// ?? Devuelve el valor de la izquierda si existe y es diferente de null; de lo contrario, devuelve el valor de la derecha.
 
-
+// Usuario demo
 $usuario = [
   'nombre' => 'Ximena',
   'edad' => 0,
