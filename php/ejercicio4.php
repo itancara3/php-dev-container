@@ -1,0 +1,141 @@
+<?php
+
+// isset  Verica si una variable existe y es diferente de null
+// empty  verifica si una variable existe y su valor es diferente de "", 0, "0", [], false, null
+// array_key_exist Verifica que una key existe en un array.
+// ??     Te permite asignar valores cuando una variable no existe o es null.
+
+
+$usuario = [
+  'nombre' => 'Ximena',
+  'edad' => 0,
+  'activo' => false,
+  'telefono' => null
+];
+
+// isset
+var_dump('=========ISSET');
+var_dump(isset($usuario['nombre']));
+var_dump(isset($usuario['telefono']));
+var_dump(isset($usuario['direccion']));
+var_dump(isset($persona));
+var_dump(isset($usuario['activo']));
+
+// empty
+var_dump('=========EMPTY');
+var_dump(empty($usuario['nombre']));
+var_dump(empty($usuario['edad']));
+var_dump(empty($usuario['activo']));
+
+// ARRAY KEY EXIST
+var_dump('=========ARRAY KEY EXIST');
+var_dump(array_key_exists('activo', $usuario));
+var_dump(array_key_exists('direccion', $usuario));
+
+
+// ??
+$edad = $algo ?? 900;
+// $edad = $usuario['edad'] ?? 90;
+// $edad = $usuario['telefono'] ?? 90;
+
+
+var_dump($edad);
+
+
+$usuarios = [
+    "count" => 8,
+    "page" => 1,
+    "show" => 8,
+
+    "rows" => [
+        [
+            "id" => 1,
+            "user" => "ivan@demo.com",
+            "password" => "Ivan123!",
+            "is_active" => true,
+            "email_verified" => true,
+            "person" => [
+                "name" => "Ivan",
+                "age" => 30,
+            ],
+        ],
+        [
+            "id" => 2,
+            "user" => "carla@demo.com",
+            "password" => "Carla123!",
+            "is_active" => false,
+            "email_verified" => true,
+            "person" => [
+                "name" => "Carla",
+                "age" => 23,
+            ],
+        ],
+        [
+            "id" => 3,
+            "user" => "juan@demo.com",
+            "password" => "Juan123!",
+            "is_active" => true,
+            "email_verified" => false,
+            "person" => [
+                "name" => "Juan",
+                "age" => 35,
+            ],
+        ],
+        [
+            "id" => 4,
+            "user" => "lucia@demo.com",
+            "password" => "1234",
+            "is_active" => true,
+            "email_verified" => true,
+            "person" => [
+                "name" => "Lucia",
+                "age" => 27,
+            ],
+        ],
+        [
+            "id" => 5,
+            "user" => "pedro@demo.com",
+            "password" => null,
+            "is_active" => true,
+            "email_verified" => true,
+            "person" => [
+                "name" => "Pedro",
+                "age" => 40,
+            ],
+        ],
+        [
+            "id" => 6,
+            "user" => "ana@demo.com",
+            // No tiene la clave password.
+            "is_active" => true,
+            "email_verified" => true,
+            "person" => [
+                "name" => "Ana",
+                "age" => 22,
+            ],
+        ],
+        [
+            "id" => 7,
+            "user" => "sofia@demo.com",
+            "password" => "Sofia123!",
+            // No tiene la clave is_active.
+            "email_verified" => true,
+            "person" => [
+                "name" => "Sofia",
+                "age" => 29,
+            ],
+        ],
+        [
+            "id" => 8,
+            "user" => "miguel@demo.com",
+            "password" => "Miguel123!",
+            "is_active" => true,
+            // No tiene la clave email_verified.
+            "person" => [
+                "name" => "Miguel",
+                "age" => 33,
+            ],
+        ],
+    ],
+];
+
