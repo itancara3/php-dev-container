@@ -312,5 +312,15 @@ $orders = [
 
 // EXAMEN
 /*
+1. Realizar el login de usuario, mediande email y password simulando un inicio de sesion en el sistema.
+
+Los siguientes ejercicios solo los puede ver un usuario ron rol general o manager o un worker con el permiso especial (orders.view)
+
+2. Crear una funcion para buscar un order por su ID y estado 
+3. Listar los orders que esten pendientes y hayan sido pagados por transferencia.
+4. Listar los orders con mas de 1 item.
+5. Crear una funcion para listar los orders que user_id coincida con el usuario que inicio sesion.
+6. Calcular el total de pedidos por grupos segun su estado tomando en cuenta el descuento, la qty del item y su precio.
+   ejemplo:  total de pedidos en pendiente, en completed, cancelled
 
 */
