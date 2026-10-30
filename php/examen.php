@@ -320,6 +320,9 @@ Los siguientes ejercicios solo los puede ver un usuario ron role general o manag
 3. Listar los orders que esten pendientes y hayan sido pagados por transferencia.
 4. Listar los orders con mas de 1 item.
 5. Crear una funcion para listar los orders que user_id coincida con el usuario que inicio sesion.
-6. Calcular el total de pedidos por grupos segun su estado tomando en cuenta el descuento, la qty del item y su precio.
-   ejemplo:  total de pedidos en pendiente, en completed, cancelled y otros.
+6. Calcular el total de orders por grupos segun su estado tomando en cuenta el descuento, la qty del item y su precio.
+   ejemplo:  total de orders en pendiente, en completed, cancelled y otros.
+
+7. Encontrar todos los orders que no tengan customer o no tenga su nombre o email.
+8. Encontrar todos los orders que no cuenten con shipping o descuento.
 */
