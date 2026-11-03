@@ -10,7 +10,38 @@ $orders = [
 // Crear una funcion que devuelva el listado de ids de los orders por usuario.
 // Crear una funcion que devuelva el listado de ids de los orders que tenga mas de X items.
 
+function filtrarPorUsuario($orders, $idUsuario) {
+  $orderByUser = [];  
 
+  foreach ($orders as $order) {
+    if ($order['user_id'] === $idUsuario) {
+      $orderByUser[] = $order['id'];
+    }
+  }
+
+  return $orderByUser;
+}
+
+$idUsuario = 2;
+
+// var_dump(filtrarPorUsuario($orders, $idUsuario));
+
+
+function filtrarOrders($orders, $cantidadItems) {
+  $orderIds = [];
+
+  foreach ($orders as $order) {
+    if (count($order['items']) > $cantidadItems && !empty($order['items'])) {
+      $orderIds[] = $order['id'];
+    }
+  }
+
+  return $orderIds;
+}
+
+$cantItems = -123;
+
+// var_dump(filtrarOrders($orders, $cantItems));
 
 
 $orders = [
@@ -48,7 +79,27 @@ $orders = [
 
 
 // Crear una funcion que devuelva el listado de de ids de orders que status sea pending y payment method sea transfer y paid sea true.
+// Crear una funcion que devuelva el listado de de ids de orders paid sea false.
 
+
+
+function filtarPorCondicion($orders) {
+  $status = 'pending';
+  $paymentMethod = 'transfer';
+  $ids = [];
+
+  foreach($orders as $order) {
+    if (isset($order['payment'])) {
+      if ($order['status'] === $status && $order['payment']['method'] === $paymentMethod && $order['payment']['paid']) {
+        $ids[] = $order['id'];
+      }
+    }
+  }
+
+  return $ids;
+}
+
+// var_dump(filtarPorCondicion($orders));
 
 
 
@@ -90,6 +141,42 @@ $orders = [
 
 
 // Crear una funcion que retorne el total de los orders por estado, considerar que discount es un porcentaje.
+// Crear una funcion que retorne el total de los orders que tengan mas de x items, considerar que discount es un porcentaje.
+
+
+function totalPorEstado($orders) {
+  $estados = [];
+
+  foreach ($orders as $order) {
+    if (!in_array($order['status'], $estados)) {
+      $estados[$order['status']] = 0;
+    }
+  }
+
+  foreach ($estados as $key => $value) {
+    foreach ($orders as $order) {
+      if ($order['status'] === $key) {
+        $discount = ($order['discount'] ?? 0)/100;
+
+        $total = 0;
+
+        foreach ($order['items'] as $item) {
+          $total = $total + ($item['quantity'] * $item['price']);
+        }
+
+        $total = $total - ($total * $discount);
+
+        $estados[$key] = $estados[$key] + $total;
+      }
+    }
+  }
+
+  return $estados;
+}
+
+var_dump(totalPorEstado($orders));
+
+
 
 
 
