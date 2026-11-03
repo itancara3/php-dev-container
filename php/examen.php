@@ -326,3 +326,5 @@ Los siguientes ejercicios solo los puede ver un usuario ron role general o manag
 7. Encontrar todos los orders que no tengan customer o no tenga su nombre o email.
 8. Encontrar todos los orders que no cuenten con shipping o descuento.
 */
+
+
