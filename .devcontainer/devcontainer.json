@@ -1,21 +1,25 @@
 {
-  "name": "Clases PHP",
-  "image": "php:8.5-cli-bookworm",
-  "workspaceMount": "source=${localWorkspaceFolder}/php,target=/workspace,type=bind",
+  "name": "Clases PHP y Laravel",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "php",
+  "runServices": ["php", "postgres"],
   "workspaceFolder": "/workspace",
-  "overrideCommand": true,
-  "forwardPorts": [7001],
-  "portsAttributes": {
-    "7001": {
-      "label": "Servidor PHP",
-      "requireLocalPort": true,
-      "onAutoForward": "notify"
-    }
-  },
+  "shutdownAction": "stopCompose",
   "customizations": {
     "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "open-southeners.laravel-pint",
+        "mikestead.dotenv"
+      ],
       "settings": {
-        "php.validate.executablePath": "/usr/local/bin/php"
+        "php.validate.executablePath": "/usr/local/bin/php",
+        "laravel-pint.enable": true,
+        "laravel-pint.executablePath": "/opt/composer/vendor/bin/pint",
+        "[php]": {
+          "editor.defaultFormatter": "open-southeners.laravel-pint",
+          "editor.formatOnSave": true
+        }
       }
     }
   }

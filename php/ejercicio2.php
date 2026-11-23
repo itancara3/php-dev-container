@@ -39,10 +39,10 @@ $usuarios = [
   ]
 ];
 
-// Crear una funcion login con las validaciones correspondientes.
-// Usuario y password son requeridos
-// Verificar si el usuario esta activo
-// Password longitud minima de 8 caracteres
+var_dump($usuarios['count']);
+
+
+
 
 
 
